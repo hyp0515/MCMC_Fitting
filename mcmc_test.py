@@ -46,9 +46,28 @@ def log_probability(theta, y, yerr):
         return -np.inf
     return lp + log_likelihood(theta, y, yerr)
 
+def main(p0,nwalkers,niter,ndim,lnprob,data):
+    sampler = emcee.EnsembleSampler(nwalkers, ndim, lnprob, args=data)
+    pos, prob, state = sampler.run_mcmc(p0, niter, progress=True)
+    return sampler, pos, prob, state
 
+
+def plotter(sampler, x=r_grid, t=t_mid_train):
+    # plt.ion()
+    plt.plot(x, t, label='training data')
+    samples = sampler.flatchain
+    for theta in samples[np.random.randint(len(samples), size=200)]:
+        _, t_model = T_model(theta)
+        plt.plot(x, t_model, color='gray', alpha=0.1)
+    plt.ticklabel_format(style='sci', axis='x', scilimits=(0,0))
+    plt.legend()
+    plt.show()
+
+
+# sampler = emcee.EnsembleSampler(nwalkers, ndim, log_probability, args=(t_mid_train, yerr))
+# sampler.run_mcmc(pos, 5, progress = True)
 nwalkers, ndim = 32, 2  # Number of walkers and dimension of the parameter space
-pos = [np.array([0.1, 0.14]) + 1e-7 * np.random.randn(ndim) for i in range(nwalkers)]
-
-sampler = emcee.EnsembleSampler(nwalkers, ndim, log_probability, args=(t_mid_train, yerr))
-sampler.run_mcmc(pos, 100, progress=True)
+pos = [np.array([0.09, 0.13]) + 1e-4 * np.random.randn(ndim) for i in range(nwalkers)]
+sampler, pos, prob, state = main(pos,nwalkers,500,ndim,log_probability, (t_mid_train, yerr))
+plotter(sampler)
+# 
