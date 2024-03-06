@@ -1,0 +1,8 @@
+Test 1
+Fiducial: (0.1, 0.14, 0.14) , yerr = 50, Best-fit: (0.4386, 0.1038, 0.1940), Seed = 2
+Test 2
+Fiducial: (0.1, 0.14, 0.14) , yerr = 50, Best-fit: (, , ), Seed = 4
+Test 3
+Fiducial: (0.1, 0.14, 0.14) , yerr = 20, Best-fit: (, , ), Seed = 4
+Test 4
+Fiducial: (0.1, 0.14, 0.14) , yerr = 80, Best-fit: (, , ), Seed = 4
