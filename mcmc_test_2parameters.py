@@ -30,7 +30,7 @@ def T_model(theta):
 
 # Synthetic data (Mock Observation)
 r_grid, t_mid_fiducial = T_model(theta = (0.1, 0.14))
-yerr = 20
+yerr = 80
 t_mid_train = t_mid_fiducial + np.random.normal(loc=0.0, scale=yerr, size=len(t_mid_fiducial))
 data_indices = np.random.randint(len(r_grid), size=6)
 r_data = r_grid[data_indices]
@@ -50,7 +50,7 @@ def log_likelihood(theta, r, y, yerr):
     return -0.5 * np.sum((y - t_model[r_index]) ** 2 / yerr**2)
 
 def log_prior(theta):
-    a_max, Mstar, Mdot = theta
+    a_max, Mstar = theta
     if 0.001 < a_max < 10 and 0.08 < Mstar < 0.20:
         return 0.0
     return -np.inf
@@ -83,7 +83,7 @@ def plotter(sampler, x=r_data, t=t_data, yerr=yerr):
     plt.title('MCMC Test')
     plt.ylabel('$T_{mid}$ [K]')
     plt.xlabel('Radius [au]')
-    plt.savefig('MCMC_test_3.pdf')
+    plt.savefig('MCMC_test_7.pdf')
     # plt.show()
 
 def posterior(sampler, label = ['$a_{max}$','$M_{*}$'], truth = [0.1, 0.14]):
@@ -92,7 +92,7 @@ def posterior(sampler, label = ['$a_{max}$','$M_{*}$'], truth = [0.1, 0.14]):
         samples, labels=label, truths=truth, 
         show_titles=True, plot_datapoints=True, quantiles=[0.16, 0.5, 0.84]
         )
-    fig.savefig('corner_3.pdf')
+    fig.savefig('corner_7.pdf')
 
 nwalkers, ndim = 30, 2  # Number of walkers and dimension of the parameter space
 pos = [np.array([0.11, 0.13]) + 1e-2 * np.random.randn(ndim) for i in range(nwalkers)]
