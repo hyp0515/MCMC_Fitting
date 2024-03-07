@@ -30,7 +30,7 @@ def T_model(theta):
 
 # Synthetic data (Mock Observation)
 r_grid, t_mid_fiducial = T_model(theta = (0.1, 0.14, 0.14))
-yerr = 50
+yerr = 80
 t_mid_train = t_mid_fiducial + np.random.normal(loc=0.0, scale=yerr, size=len(t_mid_fiducial))
 data_indices = np.random.randint(len(r_grid), size=6)
 r_data = r_grid[data_indices]
@@ -83,7 +83,7 @@ def plotter(sampler, x=r_data, t=t_data, yerr=yerr):
     plt.title('MCMC Test')
     plt.ylabel('$T_{mid}$ [K]')
     plt.xlabel('Radius [au]')
-    plt.savefig('MCMC_test_2.pdf')
+    plt.savefig('MCMC_test_4.pdf')
     # plt.show()
 
 def posterior(sampler, label = ['$a_{max}$','$M_{*}$', '$\dot{M}$'], truth = [0.1, 0.14, 0.14]):
@@ -92,7 +92,7 @@ def posterior(sampler, label = ['$a_{max}$','$M_{*}$', '$\dot{M}$'], truth = [0.
         samples, labels=label, truths=truth, 
         show_titles=True, plot_datapoints=True, quantiles=[0.16, 0.5, 0.84]
         )
-    fig.savefig('corner_2.pdf')
+    fig.savefig('corner_4.pdf')
 
 nwalkers, ndim = 50, 3  # Number of walkers and dimension of the parameter space
 pos = [np.array([0.11, 0.13, 0.13]) + 1e-2 * np.random.randn(ndim) for i in range(nwalkers)]

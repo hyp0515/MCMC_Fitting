@@ -2,7 +2,7 @@
 Test 1
 Fiducial: (0.1, 0.14, 0.14) , yerr = 50, Best-fit: (0.4386, 0.1038, 0.1940), Seed = 2
 Test 2
-Fiducial: (0.1, 0.14, 0.14) , yerr = 50, Best-fit: (, , ), Seed = 4
+Fiducial: (0.1, 0.14, 0.14) , yerr = 50, Best-fit: (0.0304, 0.0873, 0.1525), Seed = 4
 Test 3
 Fiducial: (0.1, 0.14, 0.14) , yerr = 20, Best-fit: (0.0567, 0.0855, 0.1944), Seed = 4
 Test 4
@@ -10,8 +10,8 @@ Fiducial: (0.1, 0.14, 0.14) , yerr = 80, Best-fit: (, , ), Seed = 4
 
 2 Parameters (a_max, Mstar)
 Test 5
-Fiducial: (0.1, 0.14) , yerr = 50, Best-fit: (, , ), Seed = 4
+Fiducial: (0.1, 0.14) , yerr = 50, Best-fit: (0.0233, 0.1058), Seed = 4
 Test 6
-Fiducial: (0.1, 0.14) , yerr = 20, Best-fit: (, , ), Seed = 4
+Fiducial: (0.1, 0.14) , yerr = 20, Best-fit: (0.0272, 0.1073), Seed = 4
 Test 7
-Fiducial: (0.1, 0.14) , yerr = 80, Best-fit: (, , ), Seed = 4
+Fiducial: (0.1, 0.14) , yerr = 80, Best-fit: (0.0300, 0.1150), Seed = 4
